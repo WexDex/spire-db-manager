@@ -1,0 +1,275 @@
+{
+  "generatedAt": "2026-04-30T08:54:56.863Z",
+  "plannerRootResolved": "D:/new Projects/NextJS/sts-planner-reworked",
+  "sources": [
+    "D:/new Projects/NextJS/sts-planner-reworked/app/card-design-gallery/galleryStsGlyphs.ts",
+    "D:/new Projects/NextJS/sts-planner-reworked/app/utils/effectDisplay.ts",
+    "D:/new Projects/NextJS/sts-planner-reworked/app/data/STS_CARDS_DB.json"
+  ],
+  "stsIconGlyph": [
+    {
+      "key": "ADD_CARD",
+      "lucide": "SquarePlus",
+      "iconClass": "text-cyan-300",
+      "shortLabel": "Add card"
+    },
+    {
+      "key": "ANY_ORB",
+      "lucide": "Layers",
+      "iconClass": "text-slate-300",
+      "shortLabel": "Any orb",
+      "catalogDescription": "Generic orb placeholder when color not fixed"
+    },
+    {
+      "key": "AOE_DAMAGE",
+      "lucide": "Swords",
+      "iconClass": "text-rose-300",
+      "shortLabel": "Multi-hit",
+      "catalogDescription": "AoE damage"
+    },
+    {
+      "key": "AOE_ICON",
+      "lucide": "Crosshair",
+      "iconClass": "text-rose-200",
+      "shortLabel": "AoE",
+      "catalogDescription": "Hits all enemies (paired with damage icon)"
+    },
+    {
+      "key": "CAN_ADD_CARDS",
+      "lucide": "Library",
+      "iconClass": "text-teal-300",
+      "shortLabel": "Adds cards",
+      "catalogDescription": "Adds cards into hand — `canAddCards` on card data (distinct from upgrading cards in hand)."
+    },
+    {
+      "key": "CONDITIONAL_MARKER",
+      "lucide": "HelpCircle",
+      "iconClass": "text-amber-200/90",
+      "shortLabel": "Conditional",
+      "catalogDescription": "Effect is conditional (paired with draw, energy, etc.)"
+    },
+    {
+      "key": "COST_MANIP",
+      "lucide": "Coins",
+      "iconClass": "text-amber-300",
+      "shortLabel": "Cost"
+    },
+    {
+      "key": "DARK_ORB",
+      "lucide": "Moon",
+      "iconClass": "text-violet-300",
+      "shortLabel": "Dark orb",
+      "catalogDescription": "Dark orb"
+    },
+    {
+      "key": "DISCARD_ICON",
+      "lucide": "Trash2",
+      "iconClass": "text-orange-300",
+      "shortLabel": "Discard",
+      "catalogDescription": "Discard to discard pile"
+    },
+    {
+      "key": "DRAW_ICON",
+      "lucide": "FileText",
+      "iconClass": "text-cyan-300",
+      "shortLabel": "Draw",
+      "catalogDescription": "Draw from draw pile"
+    },
+    {
+      "key": "EVOKE_ICON",
+      "lucide": "CircleDot",
+      "iconClass": "text-amber-200",
+      "shortLabel": "Evoke",
+      "catalogDescription": "Evoke orb"
+    },
+    {
+      "key": "EXHAUST_SELF",
+      "lucide": "Flame",
+      "iconClass": "text-orange-400",
+      "shortLabel": "Exhaust (self)",
+      "catalogDescription": "Exhaust (self)"
+    },
+    {
+      "key": "FROST_ORB",
+      "lucide": "Snowflake",
+      "iconClass": "text-sky-300",
+      "shortLabel": "Frost orb",
+      "catalogDescription": "Frost orb"
+    },
+    {
+      "key": "GAIN_ENERGY_ICON",
+      "lucide": "Orbit",
+      "iconClass": "text-yellow-300",
+      "shortLabel": "Gain energy"
+    },
+    {
+      "key": "HP_COST",
+      "lucide": "Droplets",
+      "iconClass": "text-rose-400",
+      "shortLabel": "HP cost"
+    },
+    {
+      "key": "KEY_ETHEREAL",
+      "lucide": "Ghost",
+      "iconClass": "text-slate-400",
+      "shortLabel": "Ethereal"
+    },
+    {
+      "key": "KEY_INNATE",
+      "lucide": "Star",
+      "iconClass": "text-amber-200",
+      "shortLabel": "Innate"
+    },
+    {
+      "key": "KEY_RETAIN",
+      "lucide": "Bookmark",
+      "iconClass": "text-lime-200",
+      "shortLabel": "Retain",
+      "catalogDescription": "Retain — card stays in hand at end of turn (tiered boolean on retain)."
+    },
+    {
+      "key": "KEY_UNPLAYABLE",
+      "lucide": "Ban",
+      "iconClass": "text-slate-500",
+      "shortLabel": "Unplayable",
+      "catalogDescription": "Unplayable — cannot be played from hand (curses / specials; cost orb hidden)."
+    },
+    {
+      "key": "LIGHTNING_ORB",
+      "lucide": "Zap",
+      "iconClass": "text-amber-300",
+      "shortLabel": "Lightning orb",
+      "catalogDescription": "Lightning orb (channel / evoke visuals)"
+    },
+    {
+      "key": "LOSE_STRENGTH",
+      "lucide": "TrendingDown",
+      "iconClass": "text-orange-300",
+      "shortLabel": "Lose Strength"
+    },
+    {
+      "key": "PLASMA_ORB",
+      "lucide": "Sparkles",
+      "iconClass": "text-yellow-200",
+      "shortLabel": "Plasma orb",
+      "catalogDescription": "Plasma orb"
+    },
+    {
+      "key": "RANDOM_ICON",
+      "lucide": "Shuffle",
+      "iconClass": "text-violet-300",
+      "shortLabel": "Random",
+      "catalogDescription": "Random choice (e.g. discard target)"
+    },
+    {
+      "key": "SAME_ORB_AS_EVOKED",
+      "lucide": "Copy",
+      "iconClass": "text-slate-300",
+      "shortLabel": "Same as evoked",
+      "catalogDescription": "Echo orb type from prior evoke"
+    },
+    {
+      "key": "SCRY_ICON",
+      "lucide": "ScanSearch",
+      "iconClass": "text-fuchsia-300",
+      "shortLabel": "Scry"
+    },
+    {
+      "key": "UPGRADE_CARD",
+      "lucide": "ChevronsUp",
+      "iconClass": "text-violet-300",
+      "shortLabel": "Upgrade"
+    }
+  ],
+  "effectIcons": [
+    {
+      "effect": "attack",
+      "lucide": "BarChart3"
+    },
+    {
+      "effect": "block",
+      "lucide": "Shield"
+    },
+    {
+      "effect": "damage",
+      "lucide": "Zap"
+    },
+    {
+      "effect": "draw",
+      "lucide": "FileText"
+    },
+    {
+      "effect": "energy",
+      "lucide": "Zap"
+    },
+    {
+      "effect": "energygain",
+      "lucide": "Orbit"
+    },
+    {
+      "effect": "entangle",
+      "labExport": "spiderWeb",
+      "labKebab": "spider-web"
+    },
+    {
+      "effect": "focus",
+      "lucide": "Sparkles"
+    },
+    {
+      "effect": "frail",
+      "lucide": "ShieldOff"
+    },
+    {
+      "effect": "heal",
+      "lucide": "Heart"
+    },
+    {
+      "effect": "health",
+      "lucide": "Heart"
+    },
+    {
+      "effect": "hp",
+      "lucide": "Heart"
+    },
+    {
+      "effect": "hpcost",
+      "lucide": "Droplets"
+    },
+    {
+      "effect": "intangible",
+      "lucide": "Ghost"
+    },
+    {
+      "effect": "maxHp",
+      "lucide": "BarChart3"
+    },
+    {
+      "effect": "poison",
+      "lucide": "Skull"
+    },
+    {
+      "effect": "strength",
+      "lucide": "Dumbbell"
+    },
+    {
+      "effect": "strength_buff",
+      "lucide": "TrendingUp"
+    },
+    {
+      "effect": "takedamage",
+      "lucide": "HeartCrack"
+    },
+    {
+      "effect": "vulnerable",
+      "lucide": "AlertCircle"
+    },
+    {
+      "effect": "weak",
+      "lucide": "ArrowDown"
+    },
+    {
+      "effect": "wound",
+      "lucide": "HeartCrack"
+    }
+  ]
+}

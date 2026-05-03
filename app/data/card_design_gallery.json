@@ -1,0 +1,172 @@
+{
+  "_meta": {
+    "schemaVersion": 2,
+    "purpose": "Optional presentation fields for /card-design-gallery. Merge these objects over canonical STS_CARDS_DB (sts-planner-reworked) by matching card name (same top-level keys). Empty objects can be omitted in consumer code.",
+    "mergeWithPrimaryDbFilename": "STS_CARDS_DB.json",
+    "icons": {
+      "LIGHTNING_ORB": "Lightning orb (channel / evoke visuals)",
+      "FROST_ORB": "Frost orb",
+      "DARK_ORB": "Dark orb",
+      "PLASMA_ORB": "Plasma orb",
+      "DRAW_ICON": "Draw from draw pile",
+      "DISCARD_ICON": "Discard to discard pile",
+      "EVOKE_ICON": "Evoke orb",
+      "CONDITIONAL_MARKER": "Effect is conditional (paired with draw, energy, etc.)",
+      "ANY_ORB": "Generic orb placeholder when color not fixed",
+      "SAME_ORB_AS_EVOKED": "Echo orb type from prior evoke",
+      "AOE_ICON": "Hits all enemies (paired with damage icon)",
+      "RANDOM_ICON": "Random choice (e.g. discard target)",
+      "AOE_DAMAGE": "AoE damage",
+      "EXHAUST_SELF": "Exhaust (self)"
+    },
+    "attributeIconLinks": [
+      {
+        "attribute": "draw",
+        "iconKey": "DRAW_ICON",
+        "valueFrom": [
+          "base",
+          "upgraded"
+        ]
+      },
+      {
+        "attribute": "discardEffect",
+        "iconKey": "DISCARD_ICON",
+        "valueFrom": [
+          "base",
+          "upgraded"
+        ]
+      },
+      {
+        "attribute": "selfExhaustOnPlay",
+        "iconKey": "EXHAUST_SELF",
+        "valueFrom": [
+          "base",
+          "upgraded"
+        ]
+      }
+    ],
+    "lucideByIconKey": {},
+    "fieldKeys": {
+      "draw": "base/upgraded counts; conditioned + trigger when draw depends on If/Whenever (icons applied at render time).",
+      "discardEffect": "Flat: base, upgraded, random, fromHand — no icon keys; UI maps discard to DISCARD_ICON.",
+      "orbInteractions": "Ordered verbs: channel/evoke/next/repeat; orbIcon + presentation only (no usesIcon).",
+      "multiHit": "damageUsesMainField binds to STS damage; multiHitCount for numeric repeat 4 upgraded 5.",
+      "multiHitCount": "base upgraded when fixed repeat count; Skewer uses multiHitEnergyScaling instead.",
+      "multiHitPresentation": "formulaPresentation template text for [DMG] times X vs times hit count.",
+      "selfExhaustOnPlay": "Per tier: base and upgraded booleans — whether playing that copy exhausts the card.",
+      "appliesDebuffs": "vulnerable, weak, poison etc. with base/upgraded stacks."
+    }
+  },
+  "All-Out Attack": {
+    "discardEffect": {
+      "base": 1,
+      "random": true,
+      "fromHand": true
+    },
+    "selfExhaustOnPlay": {
+      "base": false,
+      "upgraded": false
+    }
+  },
+  "Acrobatics": {
+    "draw": {
+      "base": 3,
+      "upgraded": 4
+    },
+    "discardEffect": {
+      "base": 1,
+      "random": false,
+      "fromHand": true
+    },
+    "selfExhaustOnPlay": {
+      "base": false,
+      "upgraded": false
+    }
+  },
+  "Ball Lightning": {
+    "orbInteractions": [
+      {
+        "verb": "channel",
+        "orbIcon": "LIGHTNING_ORB",
+        "presentation": "LIGHTNING_ORB 1",
+        "amount": {
+          "base": 1
+        }
+      }
+    ]
+  },
+  "Bash": {
+    "appliesDebuffs": {
+      "vulnerable": {
+        "base": 2,
+        "upgraded": 3
+      }
+    },
+    "selfExhaustOnPlay": {
+      "base": false,
+      "upgraded": false
+    }
+  },
+  "Coolheaded": {
+    "orbInteractions": [
+      {
+        "verb": "channel",
+        "orbIcon": "FROST_ORB",
+        "presentation": "FROST_ORB 1",
+        "amount": {
+          "base": 1
+        }
+      }
+    ],
+    "draw": {
+      "base": 1,
+      "upgraded": 2
+    },
+    "selfExhaustOnPlay": {
+      "base": false,
+      "upgraded": false
+    }
+  },
+  "Corpse Explosion": {
+    "appliesDebuffs": {
+      "poison": {
+        "base": 6,
+        "upgraded": 9
+      }
+    },
+    "selfExhaustOnPlay": {
+      "base": false,
+      "upgraded": false
+    }
+  },
+  "Dualcast": {
+    "orbInteractions": [
+      {
+        "verb": "evokeNextRepeated",
+        "orbIcon": "ANY_ORB",
+        "presentation": "Evoke icon — next Orb — ×2",
+        "times": {
+          "base": 2,
+          "upgraded": 2
+        }
+      }
+    ],
+    "selfExhaustOnPlay": {
+      "base": false,
+      "upgraded": false
+    }
+  },
+  "Multi-Cast": {
+    "orbInteractions": []
+  },
+  "Reinforced Body": {
+    "selfExhaustOnPlay": {
+      "base": false,
+      "upgraded": false
+    },
+    "block": {
+      "base": 7,
+      "upgraded": 11
+    }
+  }
+}

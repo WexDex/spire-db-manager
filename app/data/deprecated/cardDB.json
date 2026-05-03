@@ -1,0 +1,195 @@
+{
+  "Carnage": {
+    "type": "Attack",
+    "cost": {
+      "base": 2,
+      "upgraded": 2
+    },
+    "damage": {
+      "base": 20,
+      "upgraded": 28
+    },
+    "description": "Deal [DMG] damage. Ethereal."
+  },
+  "Wild Strike": {
+    "type": "Attack",
+    "cost": {
+      "base": 1
+    },
+    "damage": {
+      "base": 12,
+      "upgraded": 17
+    },
+    "description": "Deal [DMG] damage. Shuffle a Wound into your draw pile."
+  },
+  "Corruption": {
+    "type": "Power",
+    "cost": {
+      "base": 3,
+      "upgraded": 2
+    },
+    "description": "Skills cost 0. Whenever you play a Skill, Exhaust it."
+  },
+  "Evolve": {
+    "type": "Power",
+    "cost": {
+      "base": 1
+    },
+    "draw": {
+      "base": 1,
+      "upgraded": 2
+    },
+    "description": "Whenever you draw a Status card, draw 1 card."
+  },
+  "Ascender's Bane": {
+    "type": "Curse",
+    "description": "Unplayable. Ethereal."
+  },
+  "Strike": {
+    "type": "Attack",
+    "cost": {
+      "base": 1,
+      "upgraded": 1
+    },
+    "damage": {
+      "base": 6,
+      "upgraded": 9
+    },
+    "description": "Deal [DMG] damage."
+  },
+  "Ghostly Armor": {
+    "type": "Skill",
+    "cost": {
+      "base": 1
+    },
+    "block": {
+      "base": 10
+    },
+    "description": "Gain [BLOCK] Block. Ethereal."
+  },
+  "Defend": {
+    "type": "Skill",
+    "cost": {
+      "base": 1,
+      "upgraded": 1
+    },
+    "block": {
+      "base": 5,
+      "upgraded": 8
+    },
+    "description": "Gain [BLOCK] Block."
+  },
+  "Shrug It Off": {
+    "type": "Skill",
+    "cost": {
+      "base": 1
+    },
+    "block": {
+      "base": 8
+    },
+    "draw": {
+      "base": 1
+    },
+    "description": "Gain [BLOCK] Block. Draw [DRAW] card."
+  },
+  "Bash": {
+    "type": "Attack",
+    "cost": {
+      "base": 2,
+      "upgraded": 2
+    },
+    "damage": {
+      "base": 8,
+      "upgraded": 10
+    },
+    "vulnerable": {
+      "base": 2,
+      "upgraded": 3
+    },
+    "description": "Deal [DMG] damage. Apply [VULN] Vulnerable."
+  },
+  "Havoc": {
+    "type": "Skill",
+    "cost": {
+      "base": 1,
+      "upgraded": 0
+    },
+    "description": "Play the top card of your draw pile and Exhaust it."
+  },
+  "Wound": {
+    "type": "Status",
+    "description": "Unplayable."
+  },
+  "Shiv": {
+    "type": "Attack",
+    "cost": {
+      "base": 0
+    },
+    "damage": {
+      "base": 4,
+      "upgraded": 6
+    },
+    "description": "Deal 4 damage. Exhaust."
+  },
+  "Pommel Strike": {
+    "type": "Attack",
+    "cost": {
+      "base": 1
+    },
+    "damage": {
+      "base": 9,
+      "upgraded": 10
+    },
+    "draw": {
+      "base": 1,
+      "upgraded": 2
+    },
+    "description": "Deal [DMG] damage. Draw [DRAW] cards."
+  },
+  "Armaments": {
+    "type": "Skill",
+    "cost": {
+      "base": 1,
+      "upgraded": 1
+    },
+    "block": {
+      "base": 5,
+      "upgraded": 5
+    },
+    "description": "Gain [BLOCK] Block. Upgrade all cards in your hand."
+  },
+  "Dark Embrace": {
+    "type": "Power",
+    "cost": {
+      "base": 2,
+      "upgraded": 1
+    },
+    "description": "Whenever a card is Exhausted, draw 1 card."
+  },
+  "Bloodletting": {
+    "type": "Skill",
+    "takeDamage": {
+      "base": 3,
+      "upgraded": 3
+    },
+    "energyGain": {
+      "base": 2,
+      "upgraded": 3
+    },
+    "cost": {
+      "base": 0
+    },
+    "description": "Lose [TAKEDMG] HP. Gain [GAINE] Energy."
+  },
+  "Feel No Pain": {
+    "type": "Power",
+    "cost": {
+      "base": 1
+    },
+    "blockOnExhaust": {
+      "base": 3,
+      "upgraded": 4
+    },
+    "description": "Whenever a card is Exhausted, gain 3 Block."
+  }
+}

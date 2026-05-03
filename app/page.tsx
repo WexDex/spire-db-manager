@@ -1,65 +1,99 @@
-import Image from "next/image";
+import Link from "next/link";
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+    <main className="mx-auto flex w-full max-w-6xl flex-1 flex-col justify-center gap-10 px-4 py-16">
+      <div className="space-y-4">
+        <h1 className="text-3xl font-semibold tracking-tight text-zinc-100 sm:text-4xl">
+          Spire DB manager
+        </h1>
+        <p className="max-w-2xl text-lg leading-relaxed text-zinc-400">
+          Choose a tool. The codex, field tools, and glyph atlas read the same canonical
+          STS card bundle from sts-planner-reworked.
+        </p>
+      </div>
+      <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4 sm:gap-6">
+        <li>
+          <Link
+            href="/codex"
+            className="flex min-h-[8.5rem] flex-col justify-between rounded-xl border border-zinc-800 bg-zinc-950/60 p-6 shadow-sm transition-colors hover:border-sky-700/50 hover:bg-zinc-900/40"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+            <div className="space-y-2">
+              <h2 className="text-lg font-semibold text-zinc-100">Codex</h2>
+              <p className="text-sm leading-relaxed text-zinc-500">
+                Search and filter cards from{" "}
+                <code className="rounded bg-zinc-900 px-1 py-0.5 font-mono text-xs text-zinc-300">
+                  sts-planner-reworked …/STS_CARDS_DB.json
+                </code>
+                — type, rarity, pool, field tags, full detail panel.
+              </p>
+            </div>
+            <span className="text-sm font-medium text-sky-400">
+              Open codex →
+            </span>
+          </Link>
+        </li>
+        <li>
+          <Link
+            href="/glyph-atlas"
+            className="flex min-h-[8.5rem] flex-col justify-between rounded-xl border border-zinc-800 bg-zinc-950/60 p-6 shadow-sm transition-colors hover:border-indigo-700/50 hover:bg-zinc-900/40"
           >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+            <div className="space-y-2">
+              <h2 className="text-lg font-semibold text-zinc-100">
+                Glyph atlas
+              </h2>
+              <p className="text-sm leading-relaxed text-zinc-500">
+                STS icon keys, semantic effect glyphs, which JSON fields attach,
+                planner-only deltas — exports for sts-planner-reworked.
+              </p>
+            </div>
+            <span className="text-sm font-medium text-indigo-400">
+              Open atlas →
+            </span>
+          </Link>
+        </li>
+        <li>
+          <Link
+            href="/field-manager"
+            className="flex min-h-[8.5rem] flex-col justify-between rounded-xl border border-zinc-800 bg-zinc-950/60 p-6 shadow-sm transition-colors hover:border-emerald-700/50 hover:bg-zinc-900/40"
+          >
+            <div className="space-y-2">
+              <h2 className="text-lg font-semibold text-zinc-100">
+                Field manager
+              </h2>
+              <p className="text-sm leading-relaxed text-zinc-500">
+                Edit structured fields per card from the canonical{" "}
+                <code className="rounded bg-zinc-900 px-1 py-0.5 font-mono text-xs text-zinc-300">
+                  STS_CARDS_DB.json
+                </code>{" "}
+                (planner) bundle — tags, toggles, description merge, raw JSON.
+              </p>
+            </div>
+            <span className="text-sm font-medium text-emerald-400">
+              Open field manager →
+            </span>
+          </Link>
+        </li>
+        <li>
+          <Link
+            href="/field-runthrough"
+            className="flex min-h-[8.5rem] flex-col justify-between rounded-xl border border-zinc-800 bg-zinc-950/60 p-6 shadow-sm transition-colors hover:border-teal-700/50 hover:bg-zinc-900/40"
+          >
+            <div className="space-y-2">
+              <h2 className="text-lg font-semibold text-zinc-100">
+                Field runthrough
+              </h2>
+              <p className="text-sm leading-relaxed text-zinc-500">
+                Walk cards one-by-one — gameplay-linked fields first, compact rows.
+                Shares saved edits with the field manager.
+              </p>
+            </div>
+            <span className="text-sm font-medium text-teal-400">
+              Open runthrough →
+            </span>
+          </Link>
+        </li>
+      </ul>
+    </main>
   );
 }
