@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import { loadStsCardsFinal } from "@/lib/load-sts-cards-db";
-import { FieldIconsView } from "./field-icons-view";
+import { readStsCanonicalBundleText } from "@/lib/load-sts-cards-db";
+import { FieldIconsWithStsBundle } from "@/app/components/sts-cards-db-client-routes";
 
 export const metadata: Metadata = {
   title: "Field icons",
@@ -9,10 +9,10 @@ export const metadata: Metadata = {
 };
 
 export default async function FieldIconsPage() {
-  const { entries } = await loadStsCardsFinal();
+  const serverBundleText = await readStsCanonicalBundleText();
   return (
     <main className="flex min-h-0 w-full flex-1 flex-col overflow-auto">
-      <FieldIconsView entries={entries} />
+      <FieldIconsWithStsBundle serverBundleText={serverBundleText} />
     </main>
   );
 }

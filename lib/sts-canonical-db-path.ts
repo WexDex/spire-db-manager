@@ -1,7 +1,8 @@
 import { existsSync } from "fs";
 import path from "path";
+import { STS_CARDS_DB_FILENAME } from "@/lib/sts-cards-db-bundle-constants";
 
-export const STS_CARDS_DB_FILENAME = "STS_CARDS_DB.json";
+export { STS_CARDS_DB_FILENAME };
 
 /**
  * Path to the authoritative DB relative to spire-db-manager when both repos live as

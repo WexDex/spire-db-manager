@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import { loadStsCardsFromDb } from "@/lib/load-sts-cards-db";
-import { CodexView } from "./codex-view";
+import { readStsCanonicalBundleText } from "@/lib/load-sts-cards-db";
+import { CodexWithStsBundle } from "@/app/components/sts-cards-db-client-routes";
 
 export const metadata: Metadata = {
   title: "Spire codex",
@@ -8,6 +8,10 @@ export const metadata: Metadata = {
 };
 
 export default async function CodexPage() {
-  const entries = await loadStsCardsFromDb();
-  return <CodexView entries={entries} />;
+  const serverBundleText = await readStsCanonicalBundleText();
+  return (
+    <main className="flex min-h-0 w-full flex-1 flex-col">
+      <CodexWithStsBundle serverBundleText={serverBundleText} />
+    </main>
+  );
 }

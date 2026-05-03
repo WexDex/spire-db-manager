@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import { loadStsCardsFinal } from "@/lib/load-sts-cards-db";
-import { FieldRunthroughView } from "./field-runthrough-view";
+import { readStsCanonicalBundleText } from "@/lib/load-sts-cards-db";
+import { FieldRunthroughWithStsBundle } from "@/app/components/sts-cards-db-client-routes";
 
 export const metadata: Metadata = {
   title: "Field runthrough",
@@ -9,10 +9,10 @@ export const metadata: Metadata = {
 };
 
 export default async function FieldRunthroughPage() {
-  const { entries, galleryFieldKeys } = await loadStsCardsFinal();
+  const serverBundleText = await readStsCanonicalBundleText();
   return (
     <main className="flex min-h-0 w-full flex-1 flex-col">
-      <FieldRunthroughView entries={entries} galleryFieldKeys={galleryFieldKeys} />
+      <FieldRunthroughWithStsBundle serverBundleText={serverBundleText} />
     </main>
   );
 }

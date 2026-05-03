@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import { loadStsCardsFinal } from "@/lib/load-sts-cards-db";
-import { CardWorkbenchCardsView } from "./card-workbench-cards-view";
+import { readStsCanonicalBundleText } from "@/lib/load-sts-cards-db";
+import { CardWorkbenchCardsWithStsBundle } from "@/app/components/sts-cards-db-client-routes";
 
 export const metadata: Metadata = {
   title: "Cards · Card workbench",
@@ -9,10 +9,10 @@ export const metadata: Metadata = {
 };
 
 export default async function CardWorkbenchCardsPage() {
-  const { entries, galleryFieldKeys } = await loadStsCardsFinal();
+  const serverBundleText = await readStsCanonicalBundleText();
   return (
     <main className="flex min-h-0 w-full flex-1 flex-col">
-      <CardWorkbenchCardsView entries={entries} galleryFieldKeys={galleryFieldKeys} />
+      <CardWorkbenchCardsWithStsBundle serverBundleText={serverBundleText} />
     </main>
   );
 }

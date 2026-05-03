@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import { loadStsCardsFinal } from "@/lib/load-sts-cards-db";
-import { FieldManagerView } from "./field-manager-view";
+import { readStsCanonicalBundleText } from "@/lib/load-sts-cards-db";
+import { FieldManagerWithStsBundle } from "@/app/components/sts-cards-db-client-routes";
 
 export const metadata: Metadata = {
   title: "Field manager",
@@ -8,14 +8,13 @@ export const metadata: Metadata = {
 };
 
 /**
- * Server snapshot from the real STS_CARDS_DB bundle (`resolveStsCardsDbPath` —
- * sts-planner-reworked sibling or `STS_CARDS_DB_PATH`).
+ * Default bundle from [`resolveStsCardsDbPath`]; overrides via STS toolbar + localStorage.
  */
 export default async function FieldManagerPage() {
-  const { entries, galleryFieldKeys } = await loadStsCardsFinal();
+  const serverBundleText = await readStsCanonicalBundleText();
   return (
     <main className="flex min-h-0 w-full flex-1 flex-col">
-      <FieldManagerView entries={entries} galleryFieldKeys={galleryFieldKeys} />
+      <FieldManagerWithStsBundle serverBundleText={serverBundleText} />
     </main>
   );
 }

@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
-import { loadStsCardsFinal } from "@/lib/load-sts-cards-db";
-import { buildGlyphAtlasData } from "@/lib/glyph-registry";
-import { GlyphAtlasView } from "./glyph-atlas-view";
+import { readStsCanonicalBundleText } from "@/lib/load-sts-cards-db";
+import { GlyphAtlasRouteClient } from "./glyph-atlas-route-client";
 
 export const metadata: Metadata = {
   title: "Glyph atlas",
@@ -10,16 +9,10 @@ export const metadata: Metadata = {
 };
 
 export default async function GlyphAtlasPage() {
-  const data = await loadStsCardsFinal();
-  const atlas = buildGlyphAtlasData({
-    iconCatalog: data.iconCatalog,
-    attributeIconLinks: data.attributeIconLinks,
-    lucideByIconKey: data.lucideByIconKey,
-  });
-
+  const serverBundleText = await readStsCanonicalBundleText();
   return (
-    <main className="flex min-h-0 w-full flex-1 flex-col overflow-auto bg-zinc-950">
-      <GlyphAtlasView atlas={atlas} />
-    </main>
+    <div className="flex min-h-0 w-full flex-1 flex-col">
+      <GlyphAtlasRouteClient serverBundleText={serverBundleText} />
+    </div>
   );
 }

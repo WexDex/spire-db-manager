@@ -284,9 +284,10 @@ export function CardWorkbenchCardsView({
   const [editorDrawerOpen, setEditorDrawerOpen] = useState(false);
 
   useEffect(() => {
-    if (editorsInline) {
+    if (!editorsInline) return;
+    queueMicrotask(() => {
       setEditorDrawerOpen(false);
-    }
+    });
   }, [editorsInline]);
 
   const toggleFieldBranch = useCallback((pathStr: string) => {
