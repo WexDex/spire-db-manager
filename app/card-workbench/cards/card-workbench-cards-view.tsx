@@ -13,6 +13,9 @@ import {
   codexRowFromRaw,
   costRawFromCard,
 } from "@/lib/runthrough-card-helpers";
+
+const CARD_WORKBENCH_UI_STATE_STORAGE_KEY =
+  "spire-card-workbench-cards-ui-state-v1";
 import { RunthroughCardReference } from "@/lib/runthrough-card-preview";
 import {
   globalPathCatalog,
@@ -55,6 +58,16 @@ type EditorsBlockProps = {
   onApplyJson: () => void;
   /** Wider split for tree + JSON when inline on large screens */
   wideJsonSplit: boolean;
+};
+
+type CardWorkbenchUiState = {
+  selectedIndex?: number;
+  tagListFilter?: string;
+  pathFilters?: string[];
+  fieldBranchesCollapsed?: string[];
+  editorsInline?: boolean;
+  rightRailOpen?: boolean;
+  editorDrawerOpen?: boolean;
 };
 
 function CardWorkbenchEditorBlock({
@@ -282,6 +295,61 @@ export function CardWorkbenchCardsView({
   const [editorsInline, setEditorsInline] = useState(true);
   const [rightRailOpen, setRightRailOpen] = useState(true);
   const [editorDrawerOpen, setEditorDrawerOpen] = useState(false);
+
+  useEffect(() => {
+    try {
+      const raw = localStorage.getItem(CARD_WORKBENCH_UI_STATE_STORAGE_KEY);
+      if (!raw) return;
+      const saved = JSON.parse(raw) as CardWorkbenchUiState;
+      if (typeof saved.selectedIndex === "number") {
+        setIndex(
+          Math.min(Math.max(0, saved.selectedIndex), baselineOrder.length - 1),
+        );
+      }
+      if (typeof saved.tagListFilter === "string") {
+        setTagListFilter(saved.tagListFilter);
+      }
+      if (Array.isArray(saved.pathFilters)) {
+        setPathFilters(new Set(saved.pathFilters));
+      }
+      if (Array.isArray(saved.fieldBranchesCollapsed)) {
+        setFieldBranchesCollapsed(new Set(saved.fieldBranchesCollapsed));
+      }
+      if (typeof saved.editorsInline === "boolean") {
+        setEditorsInline(saved.editorsInline);
+      }
+      if (typeof saved.rightRailOpen === "boolean") {
+        setRightRailOpen(saved.rightRailOpen);
+      }
+      if (typeof saved.editorDrawerOpen === "boolean") {
+        setEditorDrawerOpen(saved.editorDrawerOpen);
+      }
+    } catch {
+      /* ignore malformed UI state */
+    }
+  }, [baselineOrder.length]);
+
+  useEffect(() => {
+    const t = window.setTimeout(() => {
+      try {
+        localStorage.setItem(
+          CARD_WORKBENCH_UI_STATE_STORAGE_KEY,
+          JSON.stringify({
+            selectedIndex: index,
+            tagListFilter,
+            pathFilters: [...pathFilters],
+            fieldBranchesCollapsed: [...fieldBranchesCollapsed],
+            editorsInline,
+            rightRailOpen,
+            editorDrawerOpen,
+          }),
+        );
+      } catch {
+        /* quota */
+      }
+    }, 280);
+    return () => window.clearTimeout(t);
+  }, [index, tagListFilter, pathFilters, fieldBranchesCollapsed, editorsInline, rightRailOpen, editorDrawerOpen]);
 
   useEffect(() => {
     if (!editorsInline) return;
